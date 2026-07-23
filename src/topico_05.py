@@ -317,8 +317,12 @@ def topico_5_3_4_falsos_positivos():
     
     padrao_cpf = Pattern(name="padrao_cpf", regex=r"\d{3}\.\d{3}\.\d{3}\s?\d{2}", score=0.9)
     analisador.registry.add_recognizer(PatternRecognizer(supported_entity="CPF", patterns=[padrao_cpf], supported_language="pt"))
+
     padrao_cartao = Pattern(name="padrao_cartao", regex=r"\d{4}\s\d{4}\s\d{4}\s\d{4}", score=0.9)
     analisador.registry.add_recognizer(PatternRecognizer(supported_entity="CREDIT_CARD", patterns=[padrao_cartao], supported_language="pt"))
+
+    padrao_telefone = Pattern(name="padrao_telefone", regex=r"\(?\d{2}\)?\s\d{5}\s\d{4}", score=0.9)
+    analisador.registry.add_recognizer(PatternRecognizer(supported_entity="PHONE_NUMBER", patterns=[padrao_telefone], supported_language="pt"))
 
     with st.echo():
         # Adicionamos um número de catraca semelhante a um cartão de crédito
