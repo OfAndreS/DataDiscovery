@@ -315,6 +315,8 @@ def topico_5_3_4_falsos_positivos():
     analisador, anonimizador = criar_novo_analisador()
     from presidio_analyzer import Pattern, PatternRecognizer
     
+    padrao_cpf = Pattern(name="padrao_cpf", regex=r"\d{3}\.\d{3}\.\d{3}\s?\d{2}", score=0.9)
+    analisador.registry.add_recognizer(PatternRecognizer(supported_entity="CPF", patterns=[padrao_cpf], supported_language="pt"))
     padrao_cartao = Pattern(name="padrao_cartao", regex=r"\d{4}\s\d{4}\s\d{4}\s\d{4}", score=0.9)
     analisador.registry.add_recognizer(PatternRecognizer(supported_entity="CREDIT_CARD", patterns=[padrao_cartao], supported_language="pt"))
 
