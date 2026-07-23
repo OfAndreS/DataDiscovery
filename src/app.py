@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import topico_04 as t04
 import topico_05 as t05
@@ -6,6 +7,10 @@ import topico_05 as t05
 # Funções Auxiliares de Interface
 # ==========================================
 # Essas funções evitam a repetição de código HTML e formatação ao longo do arquivo.
+
+def obter_caminho_imagem(nome_arquivo):
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(diretorio_atual, "..", "data", nome_arquivo)
 
 def renderizar_titulo_principal(texto_titulo):
     linha_grossa = "<hr style='border: 2.5px solid #2B2B2B;'>"
@@ -54,26 +59,26 @@ if __name__ == "__main__":
         with st.container(border=False, horizontal_alignment="center"):
             
             # Slide inicial
-            st.image("../data/DataDiscovery.png", caption="")
+            st.image(obter_caminho_imagem("DataDiscovery.png"), caption="")
 
             # Tópico 01
             renderizar_titulo_principal("01 ) - Implementação ideal do Data Discovery")
             for i in range(5): st.write("")
-            st.image("../data/Mermaid.png", caption="")
+            st.image(obter_caminho_imagem("Mermaid.png"), caption="")
 
             # Tópico 02
             renderizar_titulo_principal("02 ) - Considerações na escolha da ferramenta")
-            st.image("../data/02-AmplitudeDaCorbetura.png", caption="")
-            st.image("../data/03-PrecisaoDaClassificacao.png", caption="")
-            st.image("../data/04-VisibilidadeDeAcesso.png", caption="")
-            st.image("../data/05-CapacidadeDeCorrecao.png", caption="")
-            st.image("../data/06-AlinhamentoDeConformidade.png", caption="")
+            st.image(obter_caminho_imagem("02-AmplitudeDaCorbetura.png"), caption="")
+            st.image(obter_caminho_imagem("03-PrecisaoDaClassificacao.png"), caption="")
+            st.image(obter_caminho_imagem("04-VisibilidadeDeAcesso.png"), caption="")
+            st.image(obter_caminho_imagem("05-CapacidadeDeCorrecao.png"), caption="")
+            st.image(obter_caminho_imagem("06-AlinhamentoDeConformidade.png"), caption="")
 
             # Tópico 03
             renderizar_titulo_principal("03 ) - Tipos de ferramentas")
-            st.image("../data/07-FerramentasCorporativas.png", caption="")
-            st.image("../data/DashBoard.png", caption="")
-            st.image("../data/11-FerramentasOpenSource.png", caption="")
+            st.image(obter_caminho_imagem("07-FerramentasCorporativas.png"), caption="")
+            st.image(obter_caminho_imagem("DashBoard.png"), caption="")
+            st.image(obter_caminho_imagem("11-FerramentasOpenSource.png"), caption="")
 
             # Tópico 04
             renderizar_titulo_principal("04 ) - Métodos utilizados")
@@ -102,7 +107,7 @@ if __name__ == "__main__":
             # Tópico 05
             renderizar_titulo_principal("05 ) - Aplicação do Microsoft Presidio")
 
-            st.image("../data/MicrosoftPresidio.png", caption="")
+            st.image(obter_caminho_imagem("MicrosoftPresidio.png"), caption="")
 
             renderizar_subtitulo("5.1.1 ) Tipos suportados")
             renderizar_paragrafo("O sistema reconhece diversas categorias de informações sensíveis por padrão. A tabela abaixo lista os tipos padrões de entidades que a ferramenta consegue identificar e classificar durante a leitura dos textos.")
@@ -147,8 +152,8 @@ if __name__ == "__main__":
 
             renderizar_subtitulo("5.5 ) Outras combinações de modelos")
             renderizar_paragrafo("A escolha ideal varia conforme a necessidade do projeto. Muitas vezes é necessário aceitar uma leve perda de exatidão para que o programa rode mais rápido.")
-            st.image("../data/F2ScoresForVariusModels.png", caption="Fonte: https://www.youtube.com/watch?v=1pUEG0MZxvM&t=726s")
-            st.image("../data/TrainingAndInferenceTime.png", caption="Fonte: https://www.youtube.com/watch?v=1pUEG0MZxvM&t=726s")
+            st.image(obter_caminho_imagem("F2ScoresForVariusModels.png"), caption="Fonte: https://www.youtube.com/watch?v=1pUEG0MZxvM&t=726s")
+            st.image(obter_caminho_imagem("TrainingAndInferenceTime.png"), caption="Fonte: https://www.youtube.com/watch?v=1pUEG0MZxvM&t=726s")
 
             renderizar_subtitulo("5.6 ) Aplicando o data discovery em imagens")
             renderizar_paragrafo('parte das informações sensíveis de uma organização está oculta em formatos não estruturados, como documentos digitalizados, recibos, fotos de identificação e exames médicos (DICOM). Sem ferramentas eficazes de OCR e análise contextual para "ler" o texto dentro dessas imagens, esses dados permanecem invisíveis à governança, criando pontos cegos críticos que impedem a conformidade com leis de privacidade (como a LGPD) e aumentam drasticamente o risco de vazamentos acidentais de informações pessoalmente identificáveis (PII).')
@@ -156,8 +161,8 @@ if __name__ == "__main__":
 
             # Tópico 06
             renderizar_titulo_principal("06 ) - Técnicas de tratamento e anonimização")
-            st.image("../data/9-DataAnonymization.png", caption="")
-            st.image("../data/10-CensuraDireta.png", caption="")
-            st.image("../data/11-MascaramentoParcial.png", caption="")
-            st.image("../data/12-CriptografiaIrreversivel.png", caption="")
-            st.image("../data/13-Pseudonimizacao.png", caption="")
+            st.image(obter_caminho_imagem("9-DataAnonymization.png"), caption="")
+            st.image(obter_caminho_imagem("10-CensuraDireta.png"), caption="")
+            st.image(obter_caminho_imagem("11-MascaramentoParcial.png"), caption="")
+            st.image(obter_caminho_imagem("12-CriptografiaIrreversivel.png"), caption="")
+            st.image(obter_caminho_imagem("13-Pseudonimizacao.png"), caption="")
