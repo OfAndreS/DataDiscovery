@@ -1,5 +1,10 @@
 import streamlit as st
 import pandas as pd
+import os
+
+def obter_caminho_imagem(nome_arquivo):
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(diretorio_atual, "..", "data", nome_arquivo)
 
 def plotar_texto_colorido(texto, resultados):
     resultados_ordenados = sorted(resultados, key=lambda x: (x.start, -(x.end - x.start)))
@@ -378,7 +383,8 @@ def discovery_em_imagens():
     """
     st.code(codigo_ex_1, language="python")
     with st.container(border=True, horizontal_alignment="center"):
-        st.image("../data/pulmao1.png", caption="Fonte: https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/")
+        # Imagem atualizada com a função dinâmica
+        st.image(obter_caminho_imagem("pulmao1.png"), caption="Fonte: https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/")
 
     codigo_ex_2 = """
     verify_image = verify_engine.verify(imagem, display_image=True, show_text_annotation=True)
@@ -386,7 +392,8 @@ def discovery_em_imagens():
     """
     st.code(codigo_ex_2, language="python")
     with st.container(border=True, horizontal_alignment="center"):
-        st.image("../data/pulmao2.png", caption="")
+        # Imagem atualizada com a função dinâmica
+        st.image(obter_caminho_imagem("pulmao2.png"), caption="")
 
     codigo_ex_3 = """
     verify_image = verify_engine.verify(imagem, display_image=True, show_text_annotation=False)
@@ -394,7 +401,8 @@ def discovery_em_imagens():
     """
     st.code(codigo_ex_3, language="python")
     with st.container(border=True, horizontal_alignment="center"):
-        st.image("../data/pulmao3.png", caption="")
+        # Imagem atualizada com a função dinâmica
+        st.image(obter_caminho_imagem("pulmao3.png"), caption="")
 
 
 @st.cache_data
